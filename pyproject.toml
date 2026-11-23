@@ -1,0 +1,38 @@
+[project]
+name = "rag-siglip2"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "SihemOHsin", email = "sihemhsinomb@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "langchain-chroma>=1.1.0",
+    "langchain-core>=1.8.4",
+    "langchain-google-genai>=4.5.2",
+    "pillow>=13.0.0",
+    "pymupdf>=2.1",
+    "python-dotenv>=1.2.4",
+    "streamlit>=1.67.0",
+    "torch>=2.15.0",
+    "torchvision>=0.29.2",
+    "tqdm>=4.70.1",
+    "transformers>=5.24.0",
+]
+
+[project.scripts]
+rag-siglip2 = "rag_siglip2:main"
+
+[build-system]
+requires = ["uv_build>=0.12.15,<0.13.0"]
+build-backend = "uv_build"
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform != 'darwin'" }]
+torchvision = [{ index = "pytorch-cpu", marker = "sys_platform != 'darwin'" }]
